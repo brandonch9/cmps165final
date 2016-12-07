@@ -567,16 +567,16 @@
                     
 
                     var tip = d3.tip()
-                    .attr('class', 'd3-tip')
-                    .offset([-10, 0])
-                    .html(function(d) {
-                      return '<div class="tooltip-title">' + d[3] + "</div>" + 
-                             '<img class="tooltip-img" width="50" src="http://pngimg.com/upload/small/apple_PNG12436.png">' +
-                             '<div class="tooltip-metric"><span class="tooltip-metric__name">Gallons per calorie</span><span class="tooltip-metric__value">' + round(d[0]) +'</span></div>' +
-                             '<div class="tooltip-metric"><span class="tooltip-metric__name">Gallons per pound</span><span class="tooltip-metric__value">' + round(d[1]) +'</span></div>' +
-                             '<div class="tooltip-metric"><span class="tooltip-metric__name">Pounds per person</span><span class="tooltip-metric__value">' + round(d[2]) +'</span></div>' +
-                             '<div class="triangle"></div>';
-                    })
+                                .attr('class', 'd3-tip')
+                                .offset([-10, 0])
+                                .html(function(d) {
+                                  return '<div class="tooltip-title">' + d[3] + "</div>" + 
+                                         '<img class="tooltip-img" width="50" src="'+d[5]+'">' +
+                                         '<div class="tooltip-metric"><span class="tooltip-metric__name">Gal per calorie</span><span class="tooltip-metric__value">' + round(d[0]) +'</span></div>' +
+                                         '<div class="tooltip-metric"><span class="tooltip-metric__name">Gal per lb</span><span class="tooltip-metric__value">' + Math.round(d[1]) +'</span></div>' +
+                                         '<div class="tooltip-metric"><span class="tooltip-metric__name">Lbs per person</span><span class="tooltip-metric__value">' + round(d[2]) +'</span></div>' +
+                                         '<div class="triangle"></div>';
+                                })
 
                     xScale = d3.scale.linear()
                                     .domain([0, d3.max(data, function(d) {return d[0]; })]) 
